@@ -1,0 +1,14 @@
+# Kubernetes cluster and vms settings
+common:
+  os_image_name: centos7_cloud          #OS image for kubernetes cluster VM
+  network_name: external                #Name of the network in Nutanix cluster used for this deployment
+  storage_container_name: images        #Name of image storing container
+  vm_disk_size: 10                      #Size of single VM's disk in GB
+master:
+  number_of_nodes: 3    #Number of nodes for master group (1, 3, or 5)
+  number_of_vcpu: 2     #Number of Virtual Processors used for single VM in master group
+  ram_size: 4           #GB of RAM used for single VM in master group
+worker:
+  number_of_nodes: 3    #Number of nodes for worker group
+  number_of_vcpu: 2     #Number of Virtual Processors used for single VM in worker group
+  ram_size: 4           #GB of RAM used for single VM in worker group

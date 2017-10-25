@@ -1,0 +1,10 @@
+*.pyc
+# virtualenv
+.env
+
+# kubespray
+.kubespray/
+inventory
+
+# public keys
+*.pub
