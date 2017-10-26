@@ -1,0 +1,9 @@
+# Cluster settings
+clusters:
+    prod-cluster:
+        address: 1.6.4.1
+        port: 9440              
+                                #Empty schema for a Cluster configuration
+    sample:                     #Human-readable name of a Cluster
+        address: 0.0.0.0        #IP address of Nutanix Prism
+        port: 9440              #Port number of Nutanix Prism
