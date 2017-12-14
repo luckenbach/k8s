@@ -131,6 +131,14 @@ To e.g get nodes status run:
 There is also [dashboard](https://github.com/kubernetes/dashboard) deployed - you can access it via browser:
 `https://master_node_ip:6443/ui`. By default user is `kube` and password `changeme`.
 Due to recent changes you will need to add administrator certificates from `admin.conf` to your browser.
+In `.kubespray/artifacts` where `admin.conf` is placed run:
+```bash
+cat admin.conf | grep certificate-authority-data | awk '{print $2}' | base64 --decode > ca.pem
+cat admin.conf | grep client-certificate-data | awk '{print $2}' | base64 --decode > k8s_crt.pem
+cat admin.conf | grep client-key-data | awk '{print $2}' | base64 --decode > k8s_key.pem
+openssl pkcs12 -export -out k8s_crt.pfx -inkey k8s_key.pem -in k8s_crt.pem -certfile ca.pem
+```
+and then import `k8s_crt.pfx` in your browser.
 
 ## Debugging
 Detailed logs of creating vms by default can be found in `/tmp/k8s_installer.log`
